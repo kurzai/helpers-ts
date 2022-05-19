@@ -1,18 +1,18 @@
 import { wholeDaysBetween, weekdaysBetween, constructHistogramFrequency } from "../src/dates"
 
 describe("dates", () => {
-    it("should count the days between monday and tuesday", () => {
+    it("counts the days between monday and tuesday", () => {
         const mon = new Date("2020-08-23")
         const wed = new Date("2020-08-25")
         expect(wholeDaysBetween(mon, wed)).toBe(2)
     })
-    it("should count the days between monday and tuesday with different times", () => {
+    it("counts the days between monday and tuesday with different times", () => {
         const mon = new Date("2020-08-23 8:00")
         const wed = new Date("2020-08-25 12:00")
         expect(wholeDaysBetween(mon, wed)).toBe(2)
     })
 
-    it("should count the weekdays", () => {
+    it("counts the weekdays", () => {
         const mon1 = new Date("2022-05-16")
         const sat1 = new Date("2022-05-21")
         const sun1 = new Date("2022-05-22")
@@ -31,7 +31,7 @@ describe("dates", () => {
         expect(weekdaysBetween(mon1, sat2)).toBe(10)
     })
 
-    it("should construct a histogram frequency", () => {
+    it("constructs a histogram frequency", () => {
         const dates = [
             new Date("2020-08-01 2:00"),
             new Date("2020-08-01 4:00"),
