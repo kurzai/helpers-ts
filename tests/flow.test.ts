@@ -1,6 +1,6 @@
 import { delay } from "../src/flow";
 
-describe("time", () => {
+describe("flow", () => {
     it("should take 1 second", async () => {
         const t1 = Date.now();
         await delay(1000);
