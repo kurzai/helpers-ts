@@ -14,26 +14,14 @@ export const wholeDaysBetween = (s: Date, e: Date): number => {
 };
 
 export const weekdaysBetween = (s: Date, e: Date): number => {
-	const diffDays = daysBetween(s, e);
-	const weeksBetween = Math.floor(diffDays / 7);
-
-	let adjust;
-	if (s.getDay() == e.getDay()) {
-		adjust = 0;
-	} else if (s.getDay() == 0 && e.getDay() == 6) {
-		adjust = 5;
-	} else if (s.getDay() == 6 && e.getDay() == 0) {
-		adjust = 0;
-	} else if (e.getDay() == 6 || e.getDay() == 0) {
-		adjust = 5 - s.getDay();
-	} else if (s.getDay() == 0 || s.getDay() == 6) {
-		adjust = e.getDay();
-	} else if (e.getDay() > s.getDay()) {
-		adjust = e.getDay() - s.getDay();
-	} else {
-		adjust = 5 + e.getDay() - s.getDay();
+	let count = 0;
+	const curDate = new Date(s.getTime());
+	while (curDate <= e) {
+		const dayOfWeek = curDate.getDay();
+		if(dayOfWeek !== 0 && dayOfWeek !== 6) count++;
+		curDate.setDate(curDate.getDate() + 1);
 	}
-	return weeksBetween * 5 + adjust;
+	return count;
 };
 
 export const constructHistogramFrequency = (dates: Date[]): Map<Date, number> => {

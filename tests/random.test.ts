@@ -1,4 +1,4 @@
-import { Randomizer, RandomMode } from "../src/random";
+import { Randomizer, RandomMode, shuffleArray } from "../src/random";
 
 describe("random", () => {
     it("returns normally distributed random numbers between 0 and 1", () => {
@@ -97,5 +97,15 @@ describe("random", () => {
             randomizer.randomIntBetween(1, 10)
         ]
         expect(arr).toEqual([5, 4, 5, 5, 4, 5, 5, 6, 6, 5])
+    })
+
+    it("shuffles the array", () => {
+        const arr = [1, 2, 3]
+        shuffleArray(arr)
+
+        expect(arr.length).toBe(3)
+        expect(arr).toContain(1)
+        expect(arr).toContain(2)
+        expect(arr).toContain(3)
     })
 })

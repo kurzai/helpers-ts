@@ -14,8 +14,10 @@ export class Randomizer {
 		if (mode) {
 			this.mode = mode;
 		}
-		this.seed = seed;
-		this.rng = seedrandom(this.seed)
+		if (seed) {
+			this.seed = seed;
+			this.rng = seedrandom(this.seed)
+		}
 	}
 
 	#baseRandom(): number {

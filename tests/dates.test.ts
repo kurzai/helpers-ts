@@ -12,13 +12,23 @@ describe("dates", () => {
         expect(wholeDaysBetween(mon, wed)).toBe(2)
     })
 
-    it("should count the weekdays in a whole week", () => {
-        const mon = new Date("2020-08-23")
-        const sat = new Date("2020-08-28")
-        const sun = new Date("2020-08-29")
+    it("should count the weekdays", () => {
+        const mon1 = new Date("2022-05-16")
+        const sat1 = new Date("2022-05-21")
+        const sun1 = new Date("2022-05-22")
+        const mon2 = new Date("2022-05-23")
+        const sat2 = new Date("2022-05-28")
+        const sun2 = new Date("2022-05-29")
 
-        expect(weekdaysBetween(mon, sat)).toBe(5)
-        expect(weekdaysBetween(mon, sun)).toBe(5)
+        expect(weekdaysBetween(mon1, mon1)).toBe(1)
+        expect(weekdaysBetween(mon1, sat1)).toBe(5)
+        expect(weekdaysBetween(sat1, sun1)).toBe(0)
+        expect(weekdaysBetween(sat1, mon2)).toBe(1)
+        expect(weekdaysBetween(sun1, sun1)).toBe(0)
+        expect(weekdaysBetween(mon1, mon2)).toBe(6)
+
+        expect(weekdaysBetween(mon1, sat2)).toBe(10)
+        expect(weekdaysBetween(mon1, sat2)).toBe(10)
     })
 
     it("should construct a histogram frequency", () => {
