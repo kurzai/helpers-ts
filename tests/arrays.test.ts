@@ -1,4 +1,4 @@
-import { last, sortAsc, sortDesc } from "../src/arrays";
+import { last, sortAsc, sortDesc, flatten } from "../src/arrays";
 
 describe("arrays", () => {
     it("returns the last element of the array", () => {
@@ -20,5 +20,10 @@ describe("arrays", () => {
     it("sorts the array of number descending", () => {
         expect(sortDesc([3, 1, 5, 5, 2, 7, 6, 4]))
             .toEqual([7, 6, 5, 5, 4, 3, 2, 1])
+    })
+
+    it("flattens the array", () => {
+        expect(flatten([[1, 2], [3, 4, 5], []]))
+            .toEqual([1, 2, 3, 4, 5])
     })
 })
