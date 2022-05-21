@@ -1,6 +1,6 @@
 export async function asyncForEach<T>(
   arr: Array<T>,
-  handler: (el: T, idx?: number) => null
+  handler: (el: T, idx?: number) => void
 ): Promise<void> {
   for (let i = 0; i < arr.length; i++) {
     await Promise.resolve(handler(arr[i], i));
