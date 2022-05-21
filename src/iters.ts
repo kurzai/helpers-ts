@@ -1,8 +1,8 @@
 export async function asyncForEach<T>(
   arr: Array<T>,
-  handler: (el: T, idx?: number) => any
+  handler: (el: T, idx?: number) => null
 ): Promise<void> {
-  for (let i: number = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     await Promise.resolve(handler(arr[i], i));
   }
 }
@@ -26,7 +26,7 @@ export async function asyncFind<T>(
   arr: Array<T>,
   predicate: (el: T, idx?: number) => Promise<boolean> | boolean
 ): Promise<T | undefined> {
-  for (let i: number = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     const match = await Promise.resolve(predicate(arr[i], i));
     if (match) return arr[i];
   }

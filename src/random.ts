@@ -26,12 +26,12 @@ export class Randomizer {
     }
     return Math.random();
   }
-  random(v: number = 4): number {
+  random(v = 4): number {
     if (this.mode === RandomMode.NORMAL) {
       return this.#baseRandom();
     } else {
       let r = 0;
-      for (let i: number = v; i > 0; i--) {
+      for (let i  = v; i > 0; i--) {
         r += this.#baseRandom();
       }
       return r / v;
@@ -52,7 +52,7 @@ export class Randomizer {
   }
 }
 
-export function shuffleArray(arr: Array<any>): void {
+export function shuffleArray<T>(arr: T[]): void {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
